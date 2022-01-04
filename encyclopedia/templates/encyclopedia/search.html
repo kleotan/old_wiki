@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+
+<h2>Результат пошуку:</h2>
+{% if articles %}
+        <div>По запиту '{{ query }}' знайдено:</div>
+{% endif %}        
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{{ entry }}" class = "list">{{ entry }}</a></li>
+            
+            {% empty%}
+                <h3>Нічого не знайдено:(</h3>
+        {% endfor %}
+
+    </ul>
+    
+{% endblock %}
